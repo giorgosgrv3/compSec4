@@ -1,0 +1,30 @@
+These were the OSSEC alerts concerning channel.py, as well as the bytecode file. They were initially seen in
+"/var/ossec/logs/alerts/alerts.log", and then recovered two days later from the archived log file "/var/ossec/logs/
+alerts/2025/Nov/ossec-alerts-23.log.gz" (since we tried to recover the logs 2 days later to put them in this .txt)
+
+
+
+** Alert 1763857811.296233: - syslog,sudo
+2025 Nov 23 02:30:11 sundaySchool->/var/log/auth.log
+Rule: 550 (level 7) -> 'Integrity checksum changed.'
+Integrity checksum changed for: '/home/giosthspanagias/Documents/compSec4/venv/lib/python3.12/site-packages/paramiko/channel.py'
+Size changed from '49283' to '49278'
+Old md5sum was: '33c0f9ffeef12813f13f821686ff8ed2'
+New md5sum is : 'ae955053eef665d4ad79e5b8c7f3a099'
+Old sha1sum was: 'fcaefc79b673e33cd1977b1854beeca4661d078c'
+New sha1sum is : 'b9a3211c3913626a47182e63299281269e3d6fe0'
+What changed:
+247c247
+<          command = command + ' && echo "you have been PWNED"'
+---
+>          command = command + ' && echo "you are PWNED!"'
+
+** Alert 1763860574.310617: mail  - ossec,syscheck,
+2025 Nov 23 03:16:14 sundaySchool->syscheck
+Rule: 551 (level 7) -> 'Integrity checksum changed again (2nd time).'
+Integrity checksum changed for: '/home/giosthspanagias/Documents/compSec4/venv/lib/python3.12/site-packages/paramiko/__pycache__/channel.cpython-312.pyc'
+Size changed from '62821' to '62816'
+Old md5sum was: '8436569db7dc342d2dd33cffd1832315'
+New md5sum is : '89286e5305978b96e4ad31d5f24b21e2'
+What changed:
+Binary files /var/ossec/tmp/syscheck-changes... differ

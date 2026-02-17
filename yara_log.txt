@@ -1,0 +1,13 @@
+This contains confirmation that Yara successfully detected "pwned" in :
+- our normal paramiko installation in compSec4/venv/lib/python3.12/site-packages/paramiko/channel.py
+- our dummy paramiko installation, infected by the quine, in compSec4/paramiko_clone
+
+
+
+(venv) giosthspanagias@sundaySchool:~/Documents/compSec4$ yara -r test.yara . | grep paramiko
+detect_pwned ./paramiko_clone/__pycache__/channel.cpython-312.pyc
+detect_pwned ./paramiko_clone/channel.py
+detect_pwned ./venv/lib64/python3.12/site-packages/paramiko/channel.py
+detect_pwned ./venv/lib64/python3.12/site-packages/paramiko/__pycache__/channel.cpython-312.pyc
+detect_pwned ./venv/lib/python3.12/site-packages/paramiko/channel.py
+detect_pwned ./venv/lib/python3.12/site-packages/paramiko/__pycache__/channel.cpython-312.pyc
